@@ -2,8 +2,8 @@
 // Do not allow concurrent builds;
 // project is parameterized;
 properties([
-    gitLabConnection('Gitlab'),disableConcurrentBuilds(),
-    buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '20')), 
+    //gitLabConnection('Gitlab'),disableConcurrentBuilds(),
+    //buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '20')), 
     parameters([
         choice(choices: ['uat', 'prod'], description: 'deploy environment', name: 'DEPLOY_ENV'),
         booleanParam(defaultValue: true, description: 'maven package and docker image', name: 'STEP_BUILD'),
