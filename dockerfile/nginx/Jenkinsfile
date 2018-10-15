@@ -29,3 +29,4 @@ pipeStage("Build Image") {
 }
 pipeStage("Deploy ${DEPLOY_ENV}") {
     pipeDeploy.helm(config) 
+}
