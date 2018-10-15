@@ -43,6 +43,6 @@ if (config.pipeline.enabled) {
 				pipeDeploy.helm(config)
 					}
 	}
-} else {
+}} else {
 	echo "Project pipeline disabled!! skip..."
 }
