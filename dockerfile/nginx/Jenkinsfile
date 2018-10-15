@@ -1,47 +1,31 @@
 properties([gitLabConnection('Gitlab'),
     parameters([choice(choices: "uat\nprod", description: 'deploy to environment', name: 'DEPLOY_ENV'),
-        booleanParam(defaultValue: true, description: 'build docker image', name: 'BUILD_STEP')]),
+        booleanParam(defaultValue: true, description: 'compile package and build docker image', name: 'BUILD_STEP')]),
     ])
 
 
 
 def gitinfo
-def configName="simpletour-www"
-def resource    = libraryResource("config/business/${configName}.yaml")
-def config      = readYaml text: resource
-if (config.pipeline.enabled) {
-	pipePodTemplate(config.app.build_label){
-		// Notify DingTalk
-		pipeDingTalkNotify.start()
-
-		// global ENV with APP_NAME
-		env.APP_NAME = configName
-		ws("workspace/${config.app.name}") {
-
-			stage("Checkout") {
-				gitinfo = checkout scm
-				// DingTalk notify
-			}
-			config = pipeParseConfig(gitinfo)
-
-			// pre check
-			pipeCheck(config)
-
-			//pipeStage("Compile Project") {
-			//	pipeBuild.maven(config.app.build_cmd)
-			//}
-			pipeStage("Build Image") {
-				buildArgs = """\
-					--build-arg APP=${config.app.name} \
-					--build-arg GIT_COMMIT=${config.GIT_COMMIT} \
-					--build-arg GIT_URL=${config.GIT_URL} \
-				""".trim()
-				pipeBuild.docker(config, buildArgs)
-			}
-			pipeStage("Deploy ${DEPLOY_ENV}") {
-				pipeDeploy.helm(config)
-					}
-	}
-}} else {
-	echo "Project pipeline disabled!! skip..."
+def config 
+stage("Checkout") {
+    gitinfo = checkout scm
+    // DingTalk notify
 }
+config = pipeParseConfig(gitinfo)
+
+// pre check
+pipeCheck(config)
+
+pipeStage("Compile Project") {
+    pipeBuild.maven(config.app.build_cmd)
+}
+pipeStage("Build Image") {
+    buildArgs = """\
+        --build-arg APP=${config.app.name} \
+        --build-arg GIT_COMMIT=${config.GIT_COMMIT} \
+        --build-arg GIT_URL=${config.GIT_URL} \
+    """.trim()
+    pipeBuild.docker(config, buildArgs)
+}
+pipeStage("Deploy ${DEPLOY_ENV}") {
+    pipeDeploy.helm(config) 
