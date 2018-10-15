@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <title>简途旅行</title>
+        <style>*{margin:0;padding:0}html{background-color:#da0849;padding-top:15px}body{padding:0 25px}.logo{position:absolute;left:50%;top:-25px;margin-left:-156px}div.content{position:relative;box-sizing:border-box;border:6px solid #fff;border-radius:20px;margin:0 auto;min-width:1024px}.img1{display:inline-block;width:100%}.padding{width:100%;padding-top:25%}.img2{display:block;margin:161px auto 30px}.tel{text-align:center}.tel span{display:inline-block;width:36px;height:34px;background:url(https://images.simpletour.com/web/img3.png) no-repeat center;vertical-align:middle}.tel p{display:inline-block;margin-left:10px;vertical-align:middle;font-size:34px;color:#fff}.items{text-align:center}.item{display:inline-block;width:440px;color:#fff;text-align:left;position:relative;vertical-align:middle;margin-top:90px}.item .star{position:absolute;width:26px;height:25px;background:url(https://images.simpletour.com/web/star.png) no-repeat center;top:7px;left:-40px}.item:first-child{margin-right:20px}.item p{font-size:28px;margin-bottom:30px;font-weight:900}.item div{font-size:20px;font-weight:100}div.qrcode-wrap{margin-top:135px;text-align:center}div.qrcode-wrap div.qrcode-item{display:inline-block;width:320px;vertical-align:top}div.qrcode-wrap div.qrcode-item p{font-size:20px;color:#fff}img.bottom{width:100%;display:block;margin-top:10px}.btm{text-align:center;color:#fff;font-size:20px;margin-bottom:20px;margin-top:60px}</style>
+    </head>
+    <body>
+        <div class="content">
+            <div class="padding"></div>
+            <img src="https://images.simpletour.com/web/logo.png" class="logo">
+            <img src="https://images.simpletour.com/web/img1.png" class="img1">
+            <img src="https://images.simpletour.com/web/img7.png" class="img2">
+            <div class="tel">
+                <span></span>
+                <p>028-63138484</p>
+            </div>
+            <div class="items">
+                <div class="item">
+                    <div class="star"></div>
+                    <p>成都简途旅行社有限公司</p>
+                    <div>电话：028-82682977</div>
+                    <div>地址：四川省成都市高新区天府软件园C区11栋21楼</div>
+                </div>
+                <div class="item">
+                    <p>丽江简途巴士旅行社有限公司</p>
+                    <div>电话：0888-5167019</div>
+                    <div>地址：云南省丽江市古城区西安街道福慧路121号玉龙雪山旅游集团大楼二楼</div>
+                </div>
+            </div>
+            <div class="items">
+                <div class="item">
+                    <p>重庆简途旅行社有限公司</p>
+                    <div>电话：023-67511176</div>
+                    <div>地址：重庆市渝中区鹅岭正街1号人防办081号2楼3室</div>
+                </div>
+                <div class="item">
+                    <p>贵州爽途旅行社有限公司</p>
+                    <div>电话：0851-85229027</div>
+                    <div>地址：贵州省贵阳市观山湖区林城西路8号摩根中心A栋22楼</div>
+                </div>
+            </div>
+            <div class="qrcode-wrap">
+                <div class="qrcode-item">
+                    <img src="https://images.simpletour.com/web/img5.png">
+                    <p>[简途旅行]服务号</p>
+                </div>
+                <div class="qrcode-item">
+                    <img src="https://images.simpletour.com/web/img9.png">
+                    <p>扫码下载APP，享受更多专属福利</p>
+                    <p>微信搜索“简途旅行”关注我们</p>
+                </div>
+                <div class="qrcode-item">
+                    <img src="https://images.simpletour.com/web/img4.png">
+                    <p>[简途]订阅号</p>
+                </div>
+            </div>
+            <img src="https://images.simpletour.com/web/img2.png" class="bottom">
+        </div>
+        <div class="btm">
+            <p>成都简途旅行社有限公司    国家旅游局经营许可证号: L-SC-A00411</p>
+            <p>2016 © Simpletour.com All rights reserved.        蜀ICP备13009531号</p>
+        </div>
+    </body>
+</html>

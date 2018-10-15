@@ -1,0 +1,61 @@
+server {
+        listen       80;
+        server_name  www.simpletour.com simpletour.com www.simpletour.com.cn;
+        access_log  /data/logs/www/www.simpletour.com.access.log  main;
+        error_log  /data/logs/www/www.simpletour.com.error.log error;  
+
+        root  /data/www/html/web-server;
+        index  index.html index.php index.htm;
+        location / {
+
+        rewrite "^/tmall/(.*)$" https://cdjtlxs.m.tmall.com/$1  last;
+
+
+        if (-f $request_filename/index.html){
+                        rewrite (.*) $1/index.html break;
+                }
+        if (-f $request_filename/index.php){
+                        rewrite (.*) $1/index.php;
+                }
+        if (!-f $request_filename){
+                        rewrite (.*) /index.php;
+                }
+        }
+        
+        if ($http_user_agent ~* "iPhone|iPad|Android") {
+                rewrite "^(.*)$"  http://m.simpletour.com/mobile/gateway/wechat/home/home/ permanent;
+        }
+
+        if ($host = "simpletour.com"){
+                rewrite ^/(.*)$ http://www.simpletour.com/$1 permanent;
+        }
+
+        if ($host = "www.simpletour.com.cn"){
+                rewrite ^/(.*)$ http://www.simpletour.com/$1 permanent;
+        }
+
+        
+
+        location ~ \.(php|php5)?$ {
+            root           /data/www/html/web-server;
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+            include        fastcgi_params;
+            }
+
+        #location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|js|css)$
+        #{
+        #    expires 30d;
+        #}
+
+        error_page  404         /404.html;  
+        error_page  500 502 503 504  /500.html;
+
+        location /nginx_status {
+            stub_status on;
+            access_log   off;
+            allow 127.0.0.1;
+            deny all;
+        } 
+    }
