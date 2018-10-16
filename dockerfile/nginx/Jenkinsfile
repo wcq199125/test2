@@ -18,7 +18,7 @@ pipeDingTalkNotify.start()
 
 def gitinfo
 def config 
-
+env.APP_NAME = "simpletour-www"
 stage("Checkout") {
     gitinfo = checkout scm
     config = pipeParseConfig(gitinfo)
